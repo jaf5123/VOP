@@ -1,88 +1,89 @@
 package com.example.ext;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.util.ArrayList;
+import javafx.beans.property.*;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import java.time.*;
 
 public class Tennisclub {
-    private String clubmanager, clubnaam, locatie, telefoonnummer;
-    private LocalTime openingsuur, sluitingsuur;
-    private ArrayList<Speler> aantalleden;
-    private ArrayList<Tennisbaan> aantaltennisbanen;
-    private ArrayList<Trainer> aantaltrainers;
-    private ArrayList<Training> aantaltrainingsmomenten;
+    private StringProperty clubmanager, clubnaam, locatie, telefoonnummer;
+    private ObjectProperty<LocalTime> openingsuur, sluitingsuur;
+    private ObservableList<Speler> aantalleden;
+    private ObservableList<Tennisbaan> aantaltennisbanen;
+    private ObservableList<Trainer> aantaltrainers;
+    private ObservableList<Training> aantaltrainingsmomenten;
 
     public Tennisclub() {
-        this.clubmanager = new String();
-        this.clubnaam = new String();
-        this.locatie = new String();
-        this.telefoonnummer = new String();
-        this.openingsuur = null;
-        this.sluitingsuur = null;
-        this.aantalleden = new ArrayList<>();
-        this.aantaltennisbanen = new ArrayList<>();
-        this.aantaltrainers = new ArrayList<>();
-        this.aantaltrainingsmomenten = new ArrayList<>();
+        this.clubmanager = new SimpleStringProperty();
+        this.clubnaam = new SimpleStringProperty();
+        this.locatie = new SimpleStringProperty();
+        this.telefoonnummer = new SimpleStringProperty();
+        this.openingsuur = new SimpleObjectProperty<>();
+        this.sluitingsuur = new SimpleObjectProperty<>();
+        this.aantalleden = FXCollections.observableArrayList();
+        this.aantaltennisbanen = FXCollections.observableArrayList();
+        this.aantaltrainers = FXCollections.observableArrayList();
+        this.aantaltrainingsmomenten = FXCollections.observableArrayList();
     };
 
-    public Tennisclub(String clubmanager, String clubnaam, String locatie, String telefoonnummer, LocalTime openingsuur, LocalTime sluitingsuur) {
+    public Tennisclub(SimpleStringProperty clubmanager, SimpleStringProperty clubnaam, SimpleStringProperty locatie, SimpleStringProperty telefoonnummer, ObjectProperty<LocalTime> openingsuur, ObjectProperty<LocalTime> sluitingsuur) {
         this.clubmanager = clubmanager;
         this.clubnaam = clubnaam;
         this.locatie = locatie;
         this.telefoonnummer = telefoonnummer;
         this.openingsuur = openingsuur;
         this.sluitingsuur = sluitingsuur;
-        this.aantalleden = new ArrayList<>();
-        this.aantaltennisbanen = new ArrayList<>();
-        this.aantaltrainers = new ArrayList<>();
-        this.aantaltrainingsmomenten = new ArrayList<>();
+        this.aantalleden = FXCollections.observableArrayList();
+        this.aantaltennisbanen = FXCollections.observableArrayList();
+        this.aantaltrainers = FXCollections.observableArrayList();
+        this.aantaltrainingsmomenten = FXCollections.observableArrayList();
     };
 
-    public void setClubmanager(String clubmanager) {
+    public void setClubmanager(StringProperty clubmanager) {
         this.clubmanager = clubmanager;
     }
 
-    public String getClubmanager() {
+    public StringProperty getClubmanager() {
         return clubmanager;
     }
 
-    public void setClubnaam(String clubnaam) {
+    public void setClubnaam(StringProperty clubnaam) {
         this.clubnaam = clubnaam;
     }
 
-    public String getClubnaam() {
+    public StringProperty getClubnaam() {
         return clubnaam;
     }
 
-    public void setLocatie(String locatie) {
+    public void setLocatie(StringProperty locatie) {
         this.locatie = locatie;
     }
 
-    public String getLocatie() {
+    public StringProperty getLocatie() {
         return locatie;
     }
 
-    public void setTelefoonnummer(String telefoonnummer) {
+    public void setTelefoonnummer(StringProperty telefoonnummer) {
         this.telefoonnummer = telefoonnummer;
     }
 
-    public String getTelefoonnummer() {
+    public StringProperty getTelefoonnummer() {
         return telefoonnummer;
     }
 
-    public void setOpeningsuur(LocalTime openingsuur) {
+    public void setOpeningsuur(ObjectProperty<LocalTime> openingsuur) {
         this.openingsuur = openingsuur;
     }
 
-    public LocalTime getOpeningsuur() {
+    public ObjectProperty<LocalTime> getOpeningsuur() {
         return openingsuur;
     }
 
-    public void setSluitingsuur(LocalTime sluitingsuur) {
+    public void setSluitingsuur(ObjectProperty<LocalTime> sluitingsuur) {
         this.sluitingsuur = sluitingsuur;
     }
 
-    public LocalTime getSluitingsuur() {
+    public ObjectProperty<LocalTime> getSluitingsuur() {
         return sluitingsuur;
     }
 

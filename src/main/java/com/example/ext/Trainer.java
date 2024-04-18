@@ -1,34 +1,27 @@
 package com.example.ext;
 
 import java.time.LocalDate;
+import javafx.beans.property.*;
 
 public class Trainer {
-    private String geslacht, specialiteit;
-    private LocalDate werkt_sinds;
-    private Ervaring ervaring;
-    private Persoon persoon;
+    private StringProperty geslacht, specialiteit;
+    private ObjectProperty<LocalDate> werkt_sinds;
+    private ObjectProperty<Ervaring> ervaring;
+    private ObjectProperty<Persoon> persoon;
 
     public Trainer() {
-        this.persoon = new Persoon();
-        this.geslacht = new String();
-        this.werkt_sinds = null;
-        this.specialiteit = new String();
-        this.ervaring = Ervaring.GEEN;
+        this.geslacht = new SimpleStringProperty();
+        this.werkt_sinds = new SimpleObjectProperty<>();
+        this.specialiteit = new SimpleStringProperty();
+        this.ervaring = new SimpleObjectProperty<>();
+        this.persoon = new SimpleObjectProperty<>();
     };
 
-    public Trainer(Persoon persoon, String geslacht, LocalDate werkt_sinds, String specialiteit, Ervaring ervaring) {
-        this.persoon = persoon;
-        this.geslacht = geslacht;
-        this.werkt_sinds = werkt_sinds;
-        this.specialiteit = specialiteit;
-        this.ervaring = ervaring;
-    };
-
-    public void setPersoon(Persoon persoon) {
+    public void setPersoon(ObjectProperty<Persoon> persoon) {
         this.persoon = persoon;
     };
 
-    public Persoon getPersoon() {
+    public ObjectProperty<Persoon> getPersoon() {
         return persoon;
     };
 

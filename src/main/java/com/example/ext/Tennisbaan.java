@@ -1,32 +1,37 @@
 package com.example.ext;
 
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+
 public class Tennisbaan {
-    private int baannummer;
-    private boolean beschikbaar;
+    private IntegerProperty baannummer;
+    private BooleanProperty beschikbaar;
 
     public Tennisbaan() {
-        this.baannummer = 0;
-        this.beschikbaar = false;
+        this.baannummer = new SimpleIntegerProperty();
+        this.beschikbaar = new SimpleBooleanProperty();
     };
 
     public Tennisbaan(int baannummer, boolean beschikbaar) {
-        this.baannummer = baannummer;
-        this.beschikbaar = beschikbaar;
+        this.baannummer = new SimpleIntegerProperty(baannummer);
+        this.beschikbaar = new SimpleBooleanProperty(beschikbaar);
     };
 
-    public void setBaannummer(int baannummer) {
+    public void setBaannummer(IntegerProperty baannummer) {
         this.baannummer = baannummer;
     };
 
-    public int getBaannummer() {
+    public IntegerProperty getBaannummer() {
         return baannummer;
     };
 
-    public void setBeschikbaar(boolean beschikbaar) {
+    public void setBeschikbaar(BooleanProperty beschikbaar) {
         this.beschikbaar = beschikbaar;
     };
 
-    public boolean isBeschikbaar() {
+    public BooleanProperty isBeschikbaar() {
         return beschikbaar;
     };
 }

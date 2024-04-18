@@ -1,63 +1,66 @@
 package com.example.ext;
 
+import javafx.beans.property.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.util.ArrayList;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 public class Training {
-    private LocalDate datum;
-    private LocalTime start_om, eindigt_om;
-    private Trainer trainer;
-    private ArrayList<Speler> spelers;
-    private Tennisbaan baan;
+    private ObjectProperty<LocalDate> datum;
+    private ObjectProperty<LocalTime> start_om, eindigt_om;
+    private ObjectProperty<Trainer> trainer;
+    private ObservableList<Speler> spelers;
+    private ObjectProperty<Tennisbaan> baan;
 
     public Training() {
-        this.datum = null;
-        this.baan = new Tennisbaan();
-        this.start_om = null;
-        this.eindigt_om = null;
-        this.trainer = new Trainer();
-        this.spelers = new ArrayList<Speler>();
+        this.datum = new SimpleObjectProperty<>();
+        this.start_om = new SimpleObjectProperty<>();
+        this.eindigt_om = new SimpleObjectProperty<>();
+        this.trainer = new SimpleObjectProperty<>();
+        this.spelers = FXCollections.observableArrayList();
+        this.baan = new SimpleObjectProperty<>();
     };
 
-    public Training(LocalDate datum, LocalTime start_om, LocalTime eindigt_om, Trainer trainer, Tennisbaan baan) {
+    public Training(ObjectProperty<LocalDate> datum, ObjectProperty<LocalTime> start_om, ObjectProperty<LocalTime> eindigt_om, ObjectProperty<Trainer> trainer, ObjectProperty<Tennisbaan> baan) {
         this.datum = datum;
         this.baan = baan;
         this.start_om = start_om;
         this.eindigt_om = eindigt_om;
         this.trainer = trainer;
-        this.spelers = new ArrayList<Speler>();
+        this.spelers = FXCollections.observableArrayList();
     };
 
-    public void setDatum(LocalDate datum) {
+    public void setDatum(ObjectProperty<LocalDate> datum) {
         this.datum = datum;
     };
 
-    public LocalDate getDatum() {
+    public ObjectProperty<LocalDate> getDatum() {
         return datum;
     };
 
-    public void setStart_om(LocalTime start_om) {
+    public void setStart_om(ObjectProperty<LocalTime> start_om) {
         this.start_om = start_om;
     };
 
-    public LocalTime getStart_om() {
+    public ObjectProperty<LocalTime> getStart_om() {
         return start_om;
     };
 
-    public void setEindigt_om(LocalTime eindigt_om) {
+    public void setEindigt_om(ObjectProperty<LocalTime> eindigt_om) {
         this.eindigt_om = eindigt_om;
     };
 
-    public LocalTime getEindigt_om() {
+    public ObjectProperty<LocalTime> getEindigt_om() {
         return eindigt_om;
     };
 
-    public void setAfgesprokenTrainer(Trainer trainer) {
+    public void setAfgesprokenTrainer(ObjectProperty<Trainer> trainer) {
         this.trainer = trainer;
     };
 
-    public Trainer getAfgesprokenTrainer() {
+    public ObjectProperty<Trainer> getAfgesprokenTrainer() {
         return trainer;
     };
 
@@ -83,11 +86,11 @@ public class Training {
         return local;
     };
 
-    public void setTennisbaan(Tennisbaan baan) {
+    public void setTennisbaan(ObjectProperty<Tennisbaan> baan) {
         this.baan = baan;
     };
 
-    public Tennisbaan getTennisbaan() {
+    public ObjectProperty<Tennisbaan> getTennisbaan() {
         return baan;
     };
 
