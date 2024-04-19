@@ -14,9 +14,9 @@ public class Tennisbaan {
         this.beschikbaar = new SimpleBooleanProperty();
     };
 
-    public Tennisbaan(int baannummer, boolean beschikbaar) {
-        this.baannummer = new SimpleIntegerProperty(baannummer);
-        this.beschikbaar = new SimpleBooleanProperty(beschikbaar);
+    public Tennisbaan(IntegerProperty baannummer, BooleanProperty beschikbaar) {
+        this.baannummer = baannummer;
+        this.beschikbaar = beschikbaar;
     };
 
     public void setBaannummer(IntegerProperty baannummer) {

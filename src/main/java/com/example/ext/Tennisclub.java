@@ -127,7 +127,7 @@ public class Tennisclub {
         aantaltennisbanen.add(baan);
     }
 
-    public void schrapSpelerVanLijst(int baannummer) {
+    public void schrapSpelerVanLijst(IntegerProperty baannummer) {
         for (Tennisbaan baan : aantaltennisbanen) {
             if (baan.getBaannummer() == baannummer) {
                 aantaltennisbanen.remove(baan);
@@ -135,7 +135,7 @@ public class Tennisclub {
         };
     }
 
-    public Tennisbaan getTennisbaanVanLijst(int baannummer) {
+    public Tennisbaan getTennisbaanVanLijst(IntegerProperty baannummer) {
         Tennisbaan local = new Tennisbaan();
         for (Tennisbaan baan : aantaltennisbanen) {
             if (baan.getBaannummer() == baannummer) {
@@ -154,7 +154,7 @@ public class Tennisclub {
 
     public void schrapTrainerVanLijst(String naam) {
         for (Trainer trainer : aantaltrainers) {
-            if (trainer.getPersoon().getNaam().equals(naam)) {
+            if (trainer.getPersoon().getName().equals(naam)) {
                 aantaltrainers.remove(trainer);
             };
         };
@@ -163,7 +163,7 @@ public class Tennisclub {
     public Trainer getTrainerVanLijst(String naam) {
         Trainer local = new Trainer();
         for (Trainer trainer : aantaltrainers) {
-            if (trainer.getPersoon().getNaam().equals(naam)) {
+            if (trainer.getPersoon().getName().equals(naam)) {
                 local = trainer;
             };
         };
@@ -177,7 +177,7 @@ public class Tennisclub {
         aantaltrainingsmomenten.add(training);
     }
 
-    public void schrapTrainingsmomentVanLijst(LocalDate datum) {
+    public void schrapTrainingsmomentVanLijst(ObjectProperty<LocalDate> datum) {
         for (Training training : aantaltrainingsmomenten) {
             if (training.getDatum().equals(datum)) {
                 aantaltrainingsmomenten.remove(training);
@@ -185,7 +185,7 @@ public class Tennisclub {
         };
     }
 
-    public Training getTrainingsmomentVanLijst(LocalDate datum) {
+    public Training getTrainingsmomentVanLijst(ObjectProperty<LocalDate> datum) {
         Training local = new Training();
         for (Training training : aantaltrainingsmomenten) {
             if (training.getDatum().equals(datum)) {

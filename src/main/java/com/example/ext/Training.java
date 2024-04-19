@@ -8,11 +8,11 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class Training {
-    private ObjectProperty<LocalDate> datum;
-    private ObjectProperty<LocalTime> start_om, eindigt_om;
-    private ObjectProperty<Trainer> trainer;
+    private SimpleObjectProperty<LocalDate> datum;
+    private SimpleObjectProperty<LocalTime> start_om, eindigt_om;
+    private SimpleObjectProperty<Trainer> trainer;
     private ObservableList<Speler> spelers;
-    private ObjectProperty<Tennisbaan> baan;
+    private SimpleObjectProperty<Tennisbaan> baan;
 
     public Training() {
         this.datum = new SimpleObjectProperty<>();
@@ -23,45 +23,45 @@ public class Training {
         this.baan = new SimpleObjectProperty<>();
     };
 
-    public Training(ObjectProperty<LocalDate> datum, ObjectProperty<LocalTime> start_om, ObjectProperty<LocalTime> eindigt_om, ObjectProperty<Trainer> trainer, ObjectProperty<Tennisbaan> baan) {
-        this.datum = datum;
-        this.baan = baan;
-        this.start_om = start_om;
-        this.eindigt_om = eindigt_om;
-        this.trainer = trainer;
+    public Training(LocalDate datum, LocalTime start_om, LocalTime eindigt_om, Trainer trainer, Tennisbaan baan) {
+        this.datum = new SimpleObjectProperty<>(datum);
+        this.baan = new SimpleObjectProperty<>(baan);
+        this.start_om = new SimpleObjectProperty<>(start_om);
+        this.eindigt_om = new SimpleObjectProperty<>(eindigt_om);
+        this.trainer = new SimpleObjectProperty<>(trainer);
         this.spelers = FXCollections.observableArrayList();
     };
 
-    public void setDatum(ObjectProperty<LocalDate> datum) {
-        this.datum = datum;
+    public void setDatum(LocalDate datum) {
+        this.datum.set(datum);
     };
 
-    public ObjectProperty<LocalDate> getDatum() {
-        return datum;
+    public LocalDate getDatum() {
+        return datum.get();
     };
 
-    public void setStart_om(ObjectProperty<LocalTime> start_om) {
-        this.start_om = start_om;
+    public void setStart_om(LocalTime start_om) {
+        this.start_om.set(start_om);
     };
 
-    public ObjectProperty<LocalTime> getStart_om() {
-        return start_om;
+    public LocalTime getStart_om() {
+        return getEindigt_om();
     };
 
-    public void setEindigt_om(ObjectProperty<LocalTime> eindigt_om) {
-        this.eindigt_om = eindigt_om;
+    public void setEindigt_om(LocalTime eindigt_om) {
+        this.eindigt_om.set(eindigt_om);
     };
 
-    public ObjectProperty<LocalTime> getEindigt_om() {
-        return eindigt_om;
+    public LocalTime getEindigt_om() {
+        return eindigt_om.get();
     };
 
-    public void setAfgesprokenTrainer(ObjectProperty<Trainer> trainer) {
-        this.trainer = trainer;
+    public void setAfgesprokenTrainer(Trainer trainer) {
+        this.trainer.set(trainer);
     };
 
-    public ObjectProperty<Trainer> getAfgesprokenTrainer() {
-        return trainer;
+    public Trainer getAfgesprokenTrainer() {
+        return trainer.get();
     };
 
     public void voegSpelerToeAanTraining(Speler speler) {
@@ -86,12 +86,12 @@ public class Training {
         return local;
     };
 
-    public void setTennisbaan(ObjectProperty<Tennisbaan> baan) {
-        this.baan = baan;
+    public void setTennisbaan(Tennisbaan baan) {
+        this.baan.set(baan);
     };
 
-    public ObjectProperty<Tennisbaan> getTennisbaan() {
-        return baan;
+    public Tennisbaan getTennisbaan() {
+        return baan.get();
     };
 
     @Override
@@ -100,7 +100,7 @@ public class Training {
 
         tekst += "*************** Training info ***************\n";
         tekst += "Begint op " + getDatum() + " om " + getStart_om() + " tot en met " + getEindigt_om() + "\n";
-        tekst += "Trainer is " + getAfgesprokenTrainer().getPersoon().getNaam() + " en het aantal leden die meedoen zijn " + spelers.size() + "\n";
+        tekst += "Trainer is " + getAfgesprokenTrainer() + " en het aantal leden die meedoen zijn " + spelers.size() + "\n";
         tekst += "De training vindt zich plaats op baan " + getTennisbaan() + "\n";
 
         return tekst;

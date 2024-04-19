@@ -1,66 +1,67 @@
 package com.example.ext;
 
 import java.time.LocalDate;
+import javafx.beans.property.*;
 
 public class Persoon {
-    private String naam, achternaam, adres;
-    private int leeftijd;
-    private LocalDate geboortedatum;
+    private SimpleStringProperty naam, achternaam, adres;
+    private SimpleIntegerProperty leeftijd;
+    private SimpleObjectProperty<LocalDate> geboortedatum;
 
     public Persoon() {
-        this.naam = new String();
-        this.achternaam = new String();
-        this.leeftijd = 0;
-        this.adres = new String();
-        this.geboortedatum = null;
+        this.naam = new SimpleStringProperty();
+        this.achternaam = new SimpleStringProperty();
+        this.leeftijd = new SimpleIntegerProperty();
+        this.adres = new SimpleStringProperty();
+        this.geboortedatum = new SimpleObjectProperty<>();
     }
 
-    public Persoon(String naam, String achternaam, int leeftijd, String adres, LocalDate geboortedatum) {
-        this.naam = naam;
-        this.achternaam = achternaam;
-        this.leeftijd = leeftijd;
-        this.adres = adres;
-        this.geboortedatum = geboortedatum;
+    public Persoon(String naam, String achternaam, Integer leeftijd, String adres, LocalDate geboortedatum) {
+        this.naam = new SimpleStringProperty(naam);
+        this.achternaam = new SimpleStringProperty(achternaam);
+        this.leeftijd = new SimpleIntegerProperty(leeftijd);
+        this.adres = new SimpleStringProperty(adres);
+        this.geboortedatum = new SimpleObjectProperty<>(geboortedatum);
     };
 
     public void setNaam(String naam) {
-        this.naam = naam;
+        this.naam.set(naam);
     }
 
     public String getNaam() {
-        return naam;
+        return naam.get();
     }
 
     public void setAchternaam(String achternaam) {
-        this.achternaam = achternaam;
+        this.achternaam.set(achternaam);
     }
 
     public String getAchternaam() {
-        return achternaam;
+        return achternaam.get();
     }
 
     public void setAdres(String adres) {
-        this.adres = adres;
+        this.adres.set(adres);
     }
 
     public String getAdres() {
-        return adres;
+        return adres.get();
     }
 
-    public void setLeeftijd(int leeftijd) {
-        this.leeftijd = leeftijd;
+    public void setLeeftijd(Integer leeftijd) {
+        this.leeftijd.set(leeftijd);
     }
 
-    public int getLeeftijd() {
-        return leeftijd;
+    public Integer getLeeftijd() {
+        return leeftijd.get();
     }
 
     public void setGeboortedatum(LocalDate geboortedatum) {
-        this.geboortedatum = geboortedatum;
+        this.geboortedatum.set(geboortedatum);
     }
 
     public LocalDate getGeboortedatum() {
-        return geboortedatum;
+        return geboortedatum.get();
     }
 
     @Override
