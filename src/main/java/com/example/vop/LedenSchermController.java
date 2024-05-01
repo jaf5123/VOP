@@ -24,14 +24,14 @@ import java.util.ResourceBundle;
 
 import com.example.ext.*;
 
-public class LedenSchermController implements Initializable {
+public class LedenSchermController {
     private final PageHandler m_pagehandler = new PageHandler();
     private ObservableList<Speler> m_spelers;
 
     public Button Startknop, Ploegenknop, Coachesknop, VoegLidToeKnop, VerwijderLidKnop;
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    @FXML
+    public void initialize() {
 
     }
 

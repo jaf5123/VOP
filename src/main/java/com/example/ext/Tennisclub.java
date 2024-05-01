@@ -154,7 +154,7 @@ public class Tennisclub {
 
     public void schrapTrainerVanLijst(String naam) {
         for (Trainer trainer : aantaltrainers) {
-            if (trainer.getPersoon().getName().equals(naam)) {
+            if (trainer.getPersoon().getNaam().equals(naam)) {
                 aantaltrainers.remove(trainer);
             };
         };
@@ -163,7 +163,7 @@ public class Tennisclub {
     public Trainer getTrainerVanLijst(String naam) {
         Trainer local = new Trainer();
         for (Trainer trainer : aantaltrainers) {
-            if (trainer.getPersoon().getName().equals(naam)) {
+            if (trainer.getPersoon().getNaam().equals(naam)) {
                 local = trainer;
             };
         };
