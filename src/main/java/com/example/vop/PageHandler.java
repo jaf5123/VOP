@@ -43,10 +43,25 @@ public class PageHandler {
                     m_stage.setScene(m_scene);
                     break;
                 case "Coachesscherm":
+                    m_root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/coachesscherm.fxml")));
+                    m_scene = new Scene(m_root);
+                    m_css = getClass().getResource("/css/coachesscherm.css").toExternalForm();
+                    m_scene.getStylesheets().add(m_css);
+                    m_stage.setScene(m_scene);
                     break;
                 case "Ploegenscherm":
+                    m_root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/ploegenscherm.fxml")));
+                    m_scene = new Scene(m_root);
+                    m_css = getClass().getResource("/css/ploegenscherm.css").toExternalForm();
+                    m_scene.getStylesheets().add(m_css);
+                    m_stage.setScene(m_scene);
                     break;
                 case "Wedstrijdenscherm":
+                    m_root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/wedstrijdenscherm.fxml")));
+                    m_scene = new Scene(m_root);
+                    m_css = getClass().getResource("/css/wedstrijdenscherm.css").toExternalForm();
+                    m_scene.getStylesheets().add(m_css);
+                    m_stage.setScene(m_scene);
                     break;
                 default:
                     m_root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/interface.fxml")));

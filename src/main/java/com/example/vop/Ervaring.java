@@ -1,4 +1,4 @@
-package com.example.ext;
+package com.example.vop;
 
 public enum Ervaring {
     GEEN,

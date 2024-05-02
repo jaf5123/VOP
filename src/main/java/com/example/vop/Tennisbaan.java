@@ -1,4 +1,4 @@
-package com.example.ext;
+package com.example.vop;
 
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleIntegerProperty;
