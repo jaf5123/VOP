@@ -6,7 +6,7 @@ import javafx.collections.ObservableList;
 import java.time.*;
 
 public class Tennisclub {
-    private SimpleStringProperty clubmanager, clubnaam, locatie, telefoonnummer;
+    private SimpleStringProperty clubmanager, clubnaam, locatie, telefoonnummer, clubfoto;
     private SimpleObjectProperty<LocalTime> openingsuur, sluitingsuur;
     private ObservableList<Speler> aantalleden;
     private ObservableList<Tennisbaan> aantaltennisbanen;
@@ -26,9 +26,10 @@ public class Tennisclub {
         this.aantaltrainingsmomenten = FXCollections.observableArrayList();
     };
 
-    public Tennisclub(String clubmanager, String clubnaam, String locatie, String telefoonnummer, LocalTime openingsuur, LocalTime sluitingsuur) {
+    public Tennisclub(String clubmanager, String clubnaam, String locatie, String telefoonnummer, LocalTime openingsuur, LocalTime sluitingsuur, String clubfoto) {
         this.clubmanager = new SimpleStringProperty(clubmanager);
         this.clubnaam = new SimpleStringProperty(clubnaam);
+        this.clubfoto = new SimpleStringProperty(clubfoto);
         this.locatie = new SimpleStringProperty(locatie);
         this.telefoonnummer = new SimpleStringProperty(telefoonnummer);
         this.openingsuur = new SimpleObjectProperty<LocalTime>(openingsuur);
@@ -56,7 +57,7 @@ public class Tennisclub {
     }
 
     public void setLocatie(String locatie) {
-        this.locatie.set(locatie);;
+        this.locatie.set(locatie);
     }
 
     public String getLocatie() {
@@ -85,6 +86,14 @@ public class Tennisclub {
 
     public LocalTime getSluitingsuur() {
         return sluitingsuur.get();
+    }
+
+    public void setClubfoto(String clubfoto) {
+        this.clubfoto.set(clubfoto);
+    }
+
+    public String getClubfoto() {
+        return clubfoto.get();
     }
 
     @Override
