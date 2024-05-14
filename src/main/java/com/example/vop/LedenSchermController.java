@@ -24,6 +24,7 @@ import java.io.IOException;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Objects;
 
 
 public class LedenSchermController {
@@ -47,37 +48,29 @@ public class LedenSchermController {
     public VeranderScherm veranderScherm;
 
     private void openVeranderScherm(Speler speler) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/veranderspeler.fxml"));
-        try {
-            Parent root = loader.load();
+        FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/fxml/veranderspeler.fxml")));
+        Parent root = loader.load();
 
-            veranderScherm = loader.getController();
-            veranderScherm.start(speler, spelersTabel);
+        veranderScherm = loader.getController();
+        veranderScherm.start(speler, spelersTabel);
 
-            Stage stage = new Stage();
-            stage.setTitle("Tennisclub De Mol: verander lid " + speler.getPersoon().getNaam() + " " + speler.getPersoon().getAchternaam());
-            stage.setScene(new Scene(root));
-            stage.initModality(Modality.APPLICATION_MODAL);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        Stage stage = new Stage();
+        stage.setTitle("Tennisclub De Mol: verander lid " + speler.getPersoon().getNaam() + " " + speler.getPersoon().getAchternaam());
+        stage.setScene(new Scene(root));
+        stage.initModality(Modality.APPLICATION_MODAL);
     }
 
     private void openToevoegScherm() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/toevoegspeler.fxml"));
-        try {
-            Parent root = loader.load();
+        FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/fxml/toevoegspeler.fxml")));
+        Parent root = loader.load();
 
-            toevoegScherm = loader.getController();
-            toevoegScherm.startVoorSpeler(spelersTabel);
+        toevoegScherm = loader.getController();
+        toevoegScherm.startVoorSpeler(spelersTabel);
 
-            Stage stage = new Stage();
-            stage.setTitle("Tennisclub De Mol: toevoegen lid");
-            stage.setScene(new Scene(root));
-            stage.initModality(Modality.APPLICATION_MODAL);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        Stage stage = new Stage();
+        stage.setTitle("Tennisclub De Mol: toevoegen lid");
+        stage.setScene(new Scene(root));
+        stage.initModality(Modality.APPLICATION_MODAL);
     }
 
     private void maakNieuweKolomAanVoorBestaandeSpelerAan(Speler speler, TableView<Speler> tabel, int index) {

@@ -38,7 +38,7 @@
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <Button fx:id="ToevoegenLidKnop" layoutX="38.0" layoutY="501.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="107.0" text="Lid toevoegen" translateY="-350.0" />
+                  <Button mnemonicParsing="false" text="Lid toevoegen" textAlignment="CENTER" translateX="35.0" translateY="155.0" />
                   <Button fx:id="WijzigLidKnop" layoutX="36.0" layoutY="562.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="107.0" text="Lid wijzigen" translateX="1.0" translateY="-345.0" />
                   <Button fx:id="VerwijderLidKnop" mnemonicParsing="false" prefHeight="30.0" prefWidth="107.0" text="Lid verwijderen" translateX="39.0" translateY="280.0" />
                   <TextArea accessibleRole="TEXT_FIELD" cache="true" layoutX="-4.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="111.0" prefWidth="200.0" text="&#10;     Tennisclub de Mol" wrapText="true">
