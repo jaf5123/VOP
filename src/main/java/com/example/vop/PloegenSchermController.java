@@ -3,28 +3,20 @@ package com.example.vop;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.IOException;
-
-import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
-
 
 public class PloegenSchermController {
     private final PageHandler m_pagehandler = new PageHandler();
@@ -48,36 +40,30 @@ public class PloegenSchermController {
 
     private void openVeranderScherm(Tennisclub tennisclub) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/veranderploeg.fxml"));
-        try {
-            Parent root = loader.load();
+        Parent root = loader.load();
 
-            veranderScherm = loader.getController();
-            veranderScherm.start(tennisclub, ploegenTabel);
+        veranderScherm = loader.getController();
+        veranderScherm.start(tennisclub, ploegenTabel);
 
-            Stage stage = new Stage();
-            stage.setTitle("Tennisclub De Mol: verander Ploeg " + tennisclub.getClubnaam());
-            stage.setScene(new Scene(root));
-            stage.initModality(Modality.APPLICATION_MODAL);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        Stage stage = new Stage();
+        stage.setTitle("Tennisclub De Mol: verander Ploeg " + tennisclub.getClubnaam());
+        stage.setScene(new Scene(root));
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.show();
     }
 
     private void openToevoegScherm() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/toevoegploeg.fxml"));
-        try {
-            Parent root = loader.load();
+        Parent root = loader.load();
 
-            toevoegScherm = loader.getController();
-            toevoegScherm.startVoorTennisClub(ploegenTabel);
+        toevoegScherm = loader.getController();
+        toevoegScherm.startVoorTennisClub(ploegenTabel);
 
-            Stage stage = new Stage();
-            stage.setTitle("Tennisclub De Mol: toevoegen Ploeg");
-            stage.setScene(new Scene(root));
-            stage.initModality(Modality.APPLICATION_MODAL);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        Stage stage = new Stage();
+        stage.setTitle("Tennisclub De Mol: toevoegen Ploeg");
+        stage.setScene(new Scene(root));
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.show();
     }
 
     private void maakNieuweKolomAanVoorBestaandePloegAan(Tennisclub tennisclub, TableView<Tennisclub> tabel, int index) {
@@ -148,13 +134,13 @@ public class PloegenSchermController {
 
     @FXML
     public void initialize() {
-        System.out.println(Variables.getInstance().getLijstMetSpelers());
+        System.out.println(Variables.getInstance().getLijstMetTennisclubs());
 
-        if (!Variables.getInstance().getLijstMetSpelers().isEmpty()) {
+        if (!Variables.getInstance().getLijstMetTennisclubs().isEmpty()) {
             ploegenTabel.getColumns().clear();
 
             List<Tennisclub> tennisclubs = Variables.getInstance().getLijstMetTennisclubs();
-            for(int i = 0; i < tennisclubs.size(); i++) {
+            for (int i = 0; i < tennisclubs.size(); i++) {
                 Tennisclub tennisclub = tennisclubs.get(i);
                 maakNieuweKolomAanVoorBestaandePloegAan(tennisclub, ploegenTabel, i);
             }
@@ -179,7 +165,7 @@ public class PloegenSchermController {
                     throw new RuntimeException(e);
                 }
             } else {
-                System.out.println("Je moet eerst een Ploeg kiezen voordat je verder kunt gaan.");
+                System.out.println("Je moet eerst een ploeg kiezen voordat je verder kunt gaan.");
             }
         });
 
@@ -201,7 +187,7 @@ public class PloegenSchermController {
         m_pagehandler.toonPagina();
     }
 
-    public void PloegenschermGaNaarPloegenscherm(ActionEvent event) throws IOException {
+    public void PloegenschermGaNaarLedenscherm(ActionEvent event) throws IOException {
         m_pagehandler.getPageFromEventSource(event);
         m_pagehandler.veranderPagina("Ledenscherm");
         m_pagehandler.toonPagina();

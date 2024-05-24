@@ -22,9 +22,9 @@
                                 <Image url="@../img/logo.png" />
                             </image>
                         </ImageView>
-                        <Button fx:id="Startknop" layoutX="188.0" layoutY="41.0" mnemonicParsing="false" text="Startscherm" />
-                        <Button fx:id="Ledenknop" layoutX="354.0" layoutY="41.0" mnemonicParsing="false" text="Ledenscherm" />
-                        <Button fx:id="Coachesknop" layoutX="525.0" layoutY="41.0" mnemonicParsing="false" text="Coachesscherm" />
+                        <Button fx:id="Startknop" layoutX="188.0" layoutY="41.0" mnemonicParsing="false" onAction="#PloegenschermGaNaarStartscherm" text="Startscherm" />
+                        <Button fx:id="Ledenknop" layoutX="354.0" layoutY="41.0" mnemonicParsing="false" onAction="#PloegenschermGaNaarLedenscherm" text="Ledenscherm" />
+                        <Button fx:id="Coachesknop" layoutX="525.0" layoutY="41.0" mnemonicParsing="false" onAction="#PloegenschermGaNaarCoachesscherm" text="Coachesscherm" />
                     </children>
                 </AnchorPane>
                 <VBox prefHeight="200.0" prefWidth="100.0">

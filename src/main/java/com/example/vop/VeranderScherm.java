@@ -13,7 +13,9 @@ import java.io.File;
 public class VeranderScherm {
     public Button folderKnop;
     public Button VeranderKnop;
+    public TextField VeranderFoto;
 
+    //Speler
     public TextField VeranderLidAdres;
     public TextField VeranderLidAchternaam;
     public TextField VeranderLidNaam;
@@ -22,7 +24,6 @@ public class VeranderScherm {
     public TextField VeranderLidGeslacht;
     public DatePicker VeranderLidGeboorteDatum;
     public DatePicker VeranderLidLidSinds;
-    public TextField VeranderFoto;
 
     private void setZoekBestandViaFolder() {
         FileChooser fileChooser = new FileChooser();
@@ -40,14 +41,13 @@ public class VeranderScherm {
 
     @FXML
     public void initialize() {
-
-    }
-
-    public void start(Speler speler, TableView<Speler> tabel) {
         folderKnop.setOnAction(event -> {
             setZoekBestandViaFolder();
         });
+    }
 
+    //Speler
+    public void start(Speler speler, TableView<Speler> tabel) {
         int indexInLijst = Variables.getInstance().getIndexVanSpelerInLijst(speler);
 
         String ervaringInTekst = new String();
@@ -107,7 +107,13 @@ public class VeranderScherm {
         });
     };
 
+    //Ploegen
     public void start(Tennisclub tennisclub, TableView<Tennisclub> tabel) {
 
-    }
+    };
+
+    //Coaches
+    public void start(Trainer trainer, TableView<Trainer> tabel) {
+
+    };
 }

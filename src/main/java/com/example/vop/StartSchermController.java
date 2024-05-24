@@ -31,9 +31,9 @@ public class StartSchermController {
         TableColumn<Speler, String> achternaam = new TableColumn<>("Achternaam");
         achternaam.setPrefWidth(110);
         TableColumn<Speler, String> adres = new TableColumn<>("adres");
-        adres.setPrefWidth(110);
+        adres.setPrefWidth(220);
         TableColumn<Speler, LocalDate> lid_sinds = new TableColumn<>("Lid sinds");
-        lid_sinds.setPrefWidth(110);
+        lid_sinds.setPrefWidth(220);
 
         ledenTabel.getColumns().addAll(profielfoto, naam, achternaam, adres, lid_sinds);
 
@@ -116,7 +116,7 @@ public class StartSchermController {
 
         if (Variables.getInstance().getLijstMetWedstrijden() == null) {
             ObservableList<Training> lijstMetWedstrijden = FXCollections.observableArrayList();
-            Variables.getInstance().setLijstMetWedstrijden(lijstMetWedstrijden);
+            Variables.getInstance().setLijstMetTrainingen(lijstMetWedstrijden);
         };
 
         System.out.println(Variables.getInstance().getLijstMetSpelers());

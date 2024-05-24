@@ -3,29 +3,21 @@ package com.example.vop;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.IOException;
-
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
-
 
 public class LedenSchermController {
     private final PageHandler m_pagehandler = new PageHandler();
@@ -58,6 +50,7 @@ public class LedenSchermController {
         stage.setTitle("Tennisclub De Mol: verander lid " + speler.getPersoon().getNaam() + " " + speler.getPersoon().getAchternaam());
         stage.setScene(new Scene(root));
         stage.initModality(Modality.APPLICATION_MODAL);
+        stage.show();
     }
 
     private void openToevoegScherm() throws IOException {
@@ -71,6 +64,7 @@ public class LedenSchermController {
         stage.setTitle("Tennisclub De Mol: toevoegen lid");
         stage.setScene(new Scene(root));
         stage.initModality(Modality.APPLICATION_MODAL);
+        stage.show();
     }
 
     private void maakNieuweKolomAanVoorBestaandeSpelerAan(Speler speler, TableView<Speler> tabel, int index) {

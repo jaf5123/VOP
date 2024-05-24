@@ -4,6 +4,7 @@ import javafx.beans.property.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import java.time.*;
+import java.util.Objects;
 
 public class Tennisclub {
     private SimpleStringProperty clubmanager, clubnaam, locatie, telefoonnummer, clubfoto;
@@ -132,13 +133,13 @@ public class Tennisclub {
         return aantalleden.size();
     };
 
-    public void voegSpelerToeAanLijst(Tennisbaan baan) {
+    public void voegTennisbaanToeAanLijst(Tennisbaan baan) {
         aantaltennisbanen.add(baan);
     }
 
-    public void schrapSpelerVanLijst(Integer baannummer) {
+    public void schrapTennisbaanVanLijst(Integer baannummer) {
         for (Tennisbaan baan : aantaltennisbanen) {
-            if (baan.getBaannummer() == baannummer) {
+            if (baan.getBaannummer().equals(baannummer)) {
                 aantaltennisbanen.remove(baan);
             };
         };
@@ -147,7 +148,7 @@ public class Tennisclub {
     public Tennisbaan getTennisbaanVanLijst(Integer baannummer) {
         Tennisbaan local = new Tennisbaan();
         for (Tennisbaan baan : aantaltennisbanen) {
-            if (baan.getBaannummer() == baannummer) {
+            if (baan.getBaannummer().equals(baannummer)) {
                 local = baan;
             };
         };

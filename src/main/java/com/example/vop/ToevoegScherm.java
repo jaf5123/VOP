@@ -1,22 +1,22 @@
 package com.example.vop;
 
-import javafx.beans.property.SimpleObjectProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.File;
-import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.ArrayList;
 
 public class ToevoegScherm {
     public Button ToevoegKnop;
     public TextField ToevoegFoto;
     public Button folderKnop;
 
-    //Speler
+    // Speler
     public TextField ToevoegLidNaam;
     public TextField ToevoegLidAchternaam;
     public TextField ToevoegLidAdres;
@@ -26,12 +26,20 @@ public class ToevoegScherm {
     public DatePicker ToevoegLidLidSinds;
     public DatePicker ToevoegLidGeboorteDatum;
 
-    //Trainer
+    // Tennisclub
+    public TextField ToevoegClubNaam;
+    public ChoiceBox<String> ToevoegClubManager;
+    public ChoiceBox<String> ToevoegClubLeden;
+    public TextField ToevoegClubLocatie;
+    public TextField ToevoegClubTelefoonnummer;
+    public TextField ToevoegClubOpeningsuur;
+    public TextField ToevoegClubSluitingsuur;
+    public TextField ToevoegClubFoto;
+    public Trainer gekozenCoach = null;
 
-    //Ploeg
-
-    //Wedstrijd
-
+    public TableView<Speler> spelersTabel;
+    public TableView<Tennisclub> tennisclubTabel;
+    public TableView<Trainer> trainerTabel;
 
     private void setZoekBestandViaFolder() {
         FileChooser fileChooser = new FileChooser();
@@ -44,118 +52,125 @@ public class ToevoegScherm {
             ToevoegFoto.setText(bestandInFolder);
         } else {
             System.out.println("Geen bestand geselecteerd.");
-        }
-    }
+        };
+    };
 
     @FXML
     public void initialize() {
-
-    };
-
-    private void maakNieuweTabelVoorSpelerAan(TableView<Speler> tabel) {
-        TableColumn<Speler, Image> profielfoto = new TableColumn<>("Foto");
-        profielfoto.setPrefWidth(110);
-        TableColumn<Speler, String> naam = new TableColumn<>("Naam");
-        naam.setPrefWidth(110);
-        TableColumn<Speler, String> achternaam = new TableColumn<>("Achternaam");
-        achternaam.setPrefWidth(110);
-        TableColumn<Speler, String> adres = new TableColumn<>("adres");
-        adres.setPrefWidth(110);
-        TableColumn<Speler, LocalDate> lid_sinds = new TableColumn<>("Lid sinds");
-        lid_sinds.setPrefWidth(110);
-
-        tabel.getColumns().addAll(profielfoto, naam, achternaam, adres, lid_sinds);
-
-        profielfoto.setCellValueFactory(celldata -> {
-            Speler lokaleLid = celldata.getValue();
-            Image image = new Image(new File(lokaleLid.getFoto()).toURI().toString());
-            return new SimpleObjectProperty<>(image);
-        });
-
-        profielfoto.setCellFactory(kolom -> new TableCell<>(){
-            private final ImageView foto = new ImageView();
-
-            {
-                foto.setFitWidth(60);
-                foto.setFitHeight(60);
-            }
-
-            @Override
-            protected void updateItem(Image profielfoto, boolean empty) {
-                super.updateItem(profielfoto, empty);
-                if (empty || profielfoto == null) {
-                    setGraphic(null);
-                } else {
-                    foto.setImage(profielfoto);
-                    setGraphic(foto);
-                }
-            }
-        });
-
-        naam.setCellValueFactory(celldata -> {
-            Speler lokaleLid = celldata.getValue();
-            String tekst = new String(lokaleLid.getPersoon().getNaam());
-            return new SimpleObjectProperty<>(tekst);
-        });
-
-        achternaam.setCellValueFactory(celldata -> {
-            Speler lokaleLid = celldata.getValue();
-            String tekst = new String(lokaleLid.getPersoon().getAchternaam());
-            return new SimpleObjectProperty<>(tekst);
-        });
-
-        adres.setCellValueFactory(celldata -> {
-            Speler lokaleLid = celldata.getValue();
-            String tekst = new String(lokaleLid.getPersoon().getAdres());
-            return new SimpleObjectProperty<>(tekst);
-        });
-
-        lid_sinds.setCellValueFactory(celldata -> {
-            Speler lokaleLid = celldata.getValue();
-            return new SimpleObjectProperty<>(lokaleLid.getLid_sinds());
-        });
-
-        tabel.setItems(Variables.getInstance().getLijstMetSpelers());
-    }
-
-    public void startVoorSpeler(TableView<Speler> spelerTabel) {
-        folderKnop.setOnAction(event -> {
-            setZoekBestandViaFolder();
-        });
+        folderKnop.setOnAction(event -> setZoekBestandViaFolder());
 
         ToevoegKnop.setOnAction(event -> {
-            Persoon nieuwPersoon = new Persoon(ToevoegLidNaam.getText(), ToevoegLidAchternaam.getText(), Integer.valueOf(ToevoegLidLeeftijd.getText()), ToevoegLidAdres.getText(), ToevoegLidGeboorteDatum.getValue());
-            Ervaring nieuwErvaring = Ervaring.GEEN;
+            if (spelersTabel != null) {
+                Persoon nieuwPersoon = new Persoon(ToevoegLidNaam.getText(), ToevoegLidAchternaam.getText(), Integer.valueOf(ToevoegLidLeeftijd.getText()), ToevoegLidAdres.getText(), ToevoegLidGeboorteDatum.getValue());
+                Ervaring nieuwErvaring = Ervaring.GEEN;
 
-            switch(ToevoegLidErvaring.getText()) {
-                case "Amateur" -> {
-                    nieuwErvaring = Ervaring.AMATEUR;
-                    break;
-                }
-                case "Ervaren" -> {
-                    nieuwErvaring = Ervaring.ERVAREN;
-                    break;
-                }
-                case "Expert" -> {
-                    nieuwErvaring = Ervaring.EXPERT;
-                    break;
-                }
-                case null, default -> {
-                    nieuwErvaring = Ervaring.GEEN;
-                    break;
-                }
+                switch (ToevoegLidErvaring.getText()) {
+                    case "Amateur" -> nieuwErvaring = Ervaring.AMATEUR;
+                    case "Ervaren" -> nieuwErvaring = Ervaring.ERVAREN;
+                    case "Expert" -> nieuwErvaring = Ervaring.EXPERT;
+                    default -> nieuwErvaring = Ervaring.GEEN;
+                };
+
+                Speler nieuwSpeler = new Speler(nieuwPersoon, ToevoegLidGeslacht.getText(), ToevoegLidLidSinds.getValue(), nieuwErvaring, ToevoegFoto.getText());
+                Variables.getInstance().voegSpelerToAanLijst(nieuwSpeler);
+                spelersTabel.getItems().add(nieuwSpeler);
+                spelersTabel.refresh();
+            } else if (tennisclubTabel != null) {
+                ArrayList<Speler> lokaleSpelerList = new ArrayList<>();
+
+                Tennisclub nieuweClub = new Tennisclub(
+                        gekozenCoach != null ? gekozenCoach.getPersoon().getNaam() + " " + gekozenCoach.getPersoon().getAchternaam() : "Geen coach gekozen",
+                        ToevoegClubNaam.getText(),
+                        ToevoegClubLocatie.getText(),
+                        ToevoegClubTelefoonnummer.getText(),
+                        LocalTime.parse(ToevoegClubOpeningsuur.getText()),
+                        LocalTime.parse(ToevoegClubSluitingsuur.getText()),
+                        ToevoegClubFoto.getText()
+                );
+
+                // Insert everything into the tennisclub object
+                for (Speler speler : lokaleSpelerList) {
+                    if (speler != null) {
+                        nieuweClub.voegSpelerToeAanLijst(speler);
+                    };
+                };
+
+                if (gekozenCoach != null) {
+                    nieuweClub.voegTrainerToeAanLijst(gekozenCoach);
+                };
+
+                Variables.getInstance().voegTennisclubToAanLijst(nieuweClub);
+                tennisclubTabel.getItems().add(nieuweClub);
+                tennisclubTabel.refresh();
+            } else if (trainerTabel != null) {
+
             };
-
-            Speler nieuwSpeler = new Speler(nieuwPersoon, ToevoegLidGeslacht.getText(), ToevoegLidLidSinds.getValue(), nieuwErvaring, ToevoegFoto.getText());
-            Variables.getInstance().voegSpelerToAanLijst(nieuwSpeler);
-            spelerTabel.getItems().add(nieuwSpeler);
 
             Stage stage = (Stage) ToevoegKnop.getScene().getWindow();
             stage.close();
         });
     };
 
-    public void startVoorTennisClub(TableView<Tennisclub> tennisclubTabel) {
+    //Spelers
+    public void startVoorSpeler(TableView<Speler> spelerTabel) {
+        this.spelersTabel = spelerTabel;
+    };
 
-    }
-}
+    //Ploegen
+    public void startVoorTennisClub(TableView<Tennisclub> tennisclubTabel) {
+        this.tennisclubTabel = tennisclubTabel;
+
+        ObservableList<String> lokaleSpelerListNamen = FXCollections.observableArrayList();
+        ObservableList<String> lokaleCoachListNamen = FXCollections.observableArrayList();
+        ArrayList<Speler> lokaleSpelerList = new ArrayList<>();
+
+        // Fill the coaches choicebox with the names of the coaches.
+        if (!Variables.getInstance().getLijstMetTrainers().isEmpty()) {
+            for (int i = 0; i < Variables.getInstance().getLijstMetTrainers().size(); i++) {
+                lokaleCoachListNamen.add(Variables.getInstance().getTrainerOpIndexInLijst(i).getPersoon().getNaam());
+            };
+        };
+
+        // Fill the player choicebox with the names of the players.
+        if (!Variables.getInstance().getLijstMetSpelers().isEmpty()) {
+            for (int i = 0; i < Variables.getInstance().getLijstMetSpelers().size(); i++) {
+                lokaleSpelerListNamen.add(Variables.getInstance().getSpelerOpIndexInLijst(i).getPersoon().getNaam());
+            };
+        };
+
+        // Choicebox for coaches.
+        ToevoegClubManager.setItems(lokaleCoachListNamen);
+        ToevoegClubManager.setOnAction(manager_event -> {
+            String manager_naam = ToevoegClubManager.getValue();
+            if (manager_naam != null) {
+                for (int i = 0; i < Variables.getInstance().getLijstMetTrainers().size(); i++) {
+                    Trainer trainer = Variables.getInstance().getTrainerOpIndexInLijst(i);
+                    if (trainer.getPersoon().getNaam().equals(manager_naam)) {
+                        gekozenCoach = trainer;
+                        break;
+                    };
+                };
+            };
+        });
+
+        // Choicebox for players.
+        ToevoegClubLeden.setItems(lokaleSpelerListNamen);
+        ToevoegClubLeden.setOnAction(lid_event -> {
+            String lid_naam = ToevoegClubLeden.getValue();
+            if (lid_naam != null) {
+                for (int i = 0; i < Variables.getInstance().getLijstMetSpelers().size(); i++) {
+                    Speler speler = Variables.getInstance().getSpelerOpIndexInLijst(i);
+                    if (speler.getPersoon().getNaam().equals(lid_naam)) {
+                        lokaleSpelerList.add(speler);
+                        break;
+                    };
+                };
+            };
+        });
+    };
+
+    //Coaches
+    public void startVoorTrainer(TableView<Trainer> coachesTabel) {
+        this.trainerTabel = coachesTabel;
+    };
+};
