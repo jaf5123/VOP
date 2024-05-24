@@ -108,6 +108,10 @@ public class Tennisclub {
         return tekst;
     }
 
+    public void setAantalleden(ObservableList<Speler> aantalleden) {
+        this.aantalleden = aantalleden;
+    };
+
     public void voegSpelerToeAanLijst(Speler speler) {
         aantalleden.add(speler);
     }
@@ -131,6 +135,10 @@ public class Tennisclub {
     }
     public int getAantalSpelers() {
         return aantalleden.size();
+    };
+
+    public void setAantaltennisbanen(ObservableList<Tennisbaan> aantaltennisbanen) {
+        this.aantaltennisbanen = aantaltennisbanen;
     };
 
     public void voegTennisbaanToeAanLijst(Tennisbaan baan) {
@@ -158,6 +166,10 @@ public class Tennisclub {
         return aantaltennisbanen.size();
     };
 
+    public void setAantaltrainers(ObservableList<Trainer> aantaltrainers) {
+        this.aantaltrainers = aantaltrainers;
+    };
+
     public void voegTrainerToeAanLijst(Trainer trainer) {
         aantaltrainers.add(trainer);
     }
@@ -181,6 +193,10 @@ public class Tennisclub {
     }
     public int getAantalTrainers() {
         return aantaltrainers.size();
+    };
+
+    public void setAantaltrainingsmomenten(ObservableList<Training> aantaltrainingsmomenten) {
+        this.aantaltrainingsmomenten = aantaltrainingsmomenten;
     };
 
     public void voegTrainingsmomentToeAanLijst(Training training) {

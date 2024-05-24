@@ -114,9 +114,14 @@ public class StartSchermController {
             Variables.getInstance().setLijstMetTennisclubs(lijstMetTennisclubs);
         };
 
-        if (Variables.getInstance().getLijstMetWedstrijden() == null) {
+        if (Variables.getInstance().getLijstMetTrainingen() == null) {
             ObservableList<Training> lijstMetWedstrijden = FXCollections.observableArrayList();
             Variables.getInstance().setLijstMetTrainingen(lijstMetWedstrijden);
+        };
+
+        if (Variables.getInstance().getLijstMetTennisbanen() == null) {
+            ObservableList<Tennisbaan> lijstMetTennisbanen = FXCollections.observableArrayList();
+            Variables.getInstance().setLijstMetTennisbanen(lijstMetTennisbanen);
         };
 
         System.out.println(Variables.getInstance().getLijstMetSpelers());

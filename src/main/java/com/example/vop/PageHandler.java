@@ -57,9 +57,9 @@ public class PageHandler {
                     m_stage.setScene(m_scene);
                     break;
                 case "Wedstrijdenscherm":
-                    m_root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/wedstrijdenscherm.fxml")));
+                    m_root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/wedstrijdscherm.fxml")));
                     m_scene = new Scene(m_root);
-                    m_css = getClass().getResource("/css/wedstrijdenscherm.css").toExternalForm();
+                    m_css = getClass().getResource("/css/wedstrijdscherm.css").toExternalForm();
                     m_scene.getStylesheets().add(m_css);
                     m_stage.setScene(m_scene);
                     break;

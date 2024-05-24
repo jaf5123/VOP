@@ -10,11 +10,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.vop.VeranderScherm">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.vop.ToevoegScherm">
     <children>
         <HBox prefHeight="400.0" prefWidth="600.0">
             <children>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Verander een wedstrijd:" textAlignment="CENTER" translateX="170.0" translateY="25.0">
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Voeg een wedstrijd toe:" textAlignment="CENTER" translateX="170.0" translateY="25.0">
                     <font>
                         <Font name="System Bold" size="18.0" />
                     </font>
@@ -22,12 +22,12 @@
             </children>
         </HBox>
         <Line endX="600.0" endY="55.5" opacity="0.53" startY="55.5" strokeWidth="4.0" />
-        <TextField fx:id="VeranderStartOm" translateX="140.0" translateY="85.0" />
-        <TextField fx:id="VeranderEindigtOm" translateX="140.0" translateY="135.0" />
-        <DatePicker fx:id="VeranderDatum" translateX="140.0" translateY="185.0" />
-        <ChoiceBox fx:id="VeranderTrainer" prefWidth="150.0" translateX="140.0" translateY="235.0" />
-        <ChoiceBox fx:id="VeranderBaan" prefWidth="150.0" translateX="140.0" translateY="285.0" />
-        <Button fx:id="VeranderKnop" mnemonicParsing="false" text="Veranderen" textAlignment="CENTER" translateX="250.0" translateY="350.0">
+        <TextField fx:id="ToevoegStartOm" translateX="140.0" translateY="85.0" />
+        <TextField fx:id="ToevoegEindigtOm" translateX="140.0" translateY="135.0" />
+        <DatePicker fx:id="ToevoegDatum" translateX="140.0" translateY="185.0" />
+        <ChoiceBox fx:id="ToevoegWedstrijdTrainer" prefWidth="150.0" translateX="140.0" translateY="235.0" />
+        <TextField fx:id="ToevoegBaan" prefWidth="150.0" translateX="140.0" translateY="285.0" />
+        <Button fx:id="ToevoegKnop" mnemonicParsing="false" text="Toevoegen" textAlignment="CENTER" translateX="250.0" translateY="350.0">
             <font>
                 <Font name="System Bold" size="14.0" />
             </font>

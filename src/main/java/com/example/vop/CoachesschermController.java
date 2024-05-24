@@ -42,8 +42,10 @@ public class CoachesschermController {
         FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/fxml/verandercoach.fxml")));
         Parent root = loader.load();
 
+        int index = Variables.getInstance().getIndexVanTrainerInLijst(trainer);
+
         veranderScherm = loader.getController();
-        veranderScherm.start(trainer, coachesTabel);
+        veranderScherm.startVoorTrainer(coachesTabel, index);
 
         Stage stage = new Stage();
         stage.setTitle("Tennisclub De Mol: verander coach " + trainer.getPersoon().getNaam() + " " + trainer.getPersoon().getAchternaam());

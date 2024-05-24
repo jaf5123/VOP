@@ -6,14 +6,11 @@ public class Variables {
     private static Variables variables;
     private ObservableList<Speler> lijstMetSpelers;
     private ObservableList<Trainer> lijstMetTrainers;
-
     private ObservableList<Training> lijstMetTrainingen;
     private ObservableList<Tennisbaan> lijstMetTennisbanen;
-
     private ObservableList<Tennisclub> lijstMetTennisclubs;
-    private ObservableList<Training> lijstMetWedstrijden;
 
-    Variables() {}
+    private Variables() {}
 
     public static Variables getInstance() {
         if (variables == null) {
@@ -22,203 +19,84 @@ public class Variables {
         return variables;
     }
 
-    public void setLijstMetSpelers(ObservableList<Speler> lijst) {
-        lijstMetSpelers = lijst;
-    }
-
-    public void voegSpelerToAanLijst(Speler speler) {
-        lijstMetSpelers.add(speler);
-    }
-
+    // Speler methods
+    public void setLijstMetSpelers(ObservableList<Speler> lijst) { lijstMetSpelers = lijst; }
+    public void voegSpelerToAanLijst(Speler speler) { lijstMetSpelers.add(speler); }
     public int getIndexVanSpelerInLijst(Speler speler) {
-        int index = 0;
         for (int i = 0; i < lijstMetSpelers.size(); i++) {
             if (lijstMetSpelers.get(i).getPersoon().getNaam().equals(speler.getPersoon().getNaam())) {
-                index = i;
-                break;
+                return i;
             }
         }
-        return index;
+        return -1;
     }
+    public Speler getSpelerOpIndexInLijst(int index) { return lijstMetSpelers.get(index); }
+    public void verwijderSpelerVanLijst(Speler speler) { lijstMetSpelers.remove(speler); }
+    public void verwijderSpelerVanLijstOpIndex(int index) {lijstMetSpelers.remove(index); }
+    public ObservableList<Speler> getLijstMetSpelers() { return lijstMetSpelers; }
 
-    public Speler getSpelerOpIndexInLijst(int index) {
-        return lijstMetSpelers.sorted().get(index);
-    }
-
-    public void verwijderSpelerVanLijst(Speler speler) {
-        for(int index = 0; index < lijstMetSpelers.size(); index++) {
-            if (lijstMetSpelers.get(index).getPersoon().getNaam().equals(speler.getPersoon().getNaam())) {
-                lijstMetSpelers.remove(index);
-                break;
-            }
-        }
-    }
-
-    public ObservableList<Speler> getListOfSpeler() { return lijstMetSpelers; }
-
-    public void setLijstMetTrainers(ObservableList<Trainer> lijst) {
-        lijstMetTrainers = lijst;
-    }
-
-    public ObservableList<Speler> getLijstMetSpelers() {
-        return lijstMetSpelers;
-    }
-
-    public void voegTrainerToAanLijst(Trainer trainer) {
-        lijstMetTrainers.add(trainer);
-    }
-
+    // Trainer methods
+    public void setLijstMetTrainers(ObservableList<Trainer> lijst) { lijstMetTrainers = lijst; }
+    public void voegTrainerToAanLijst(Trainer trainer) { lijstMetTrainers.add(trainer); }
     public int getIndexVanTrainerInLijst(Trainer trainer) {
-        int index = 0;
         for (int i = 0; i < lijstMetTrainers.size(); i++) {
             if (lijstMetTrainers.get(i).getPersoon().getNaam().equals(trainer.getPersoon().getNaam())) {
-                index = i;
-                break;
+                return i;
             }
         }
-        return index;
+        return -1;
     }
+    public Trainer getTrainerOpIndexInLijst(int index) { return lijstMetTrainers.get(index); }
+    public void verwijderTrainerVanLijst(Trainer trainer) { lijstMetTrainers.remove(trainer); }
+    public void verwijderTrainerVanLijstOpIndex(int index) {lijstMetTrainers.remove(index); }
+    public ObservableList<Trainer> getLijstMetTrainers() { return lijstMetTrainers; }
 
-    public Trainer getTrainerOpIndexInLijst(int index) {
-        return lijstMetTrainers.sorted().get(index);
-    }
-
-    public void verwijderTrainerVanLijst(Trainer trainer) {
-        for(int index = 0; index < lijstMetTrainers.size(); index++) {
-            if (lijstMetTrainers.get(index).getPersoon().getNaam().equals(trainer.getPersoon().getNaam())) {
-                lijstMetTrainers.remove(index);
-
-                break;
-            }
-        }
-    }
-
-    public ObservableList<Trainer> getListOfTrainer() { return lijstMetTrainers; }
-
-    public void setLijstMetTrainingen(ObservableList<Training> lijst) {
-        lijstMetTrainingen = lijst;
-    };
-
-    public ObservableList<Trainer> getLijstMetTrainers() {
-        return lijstMetTrainers;
-    }
-
-    public void setLijstMetTennisclubs(ObservableList<Tennisclub> lijstMetTennisclubs) {
-        this.lijstMetTennisclubs = lijstMetTennisclubs;
-    }
-
-    public void voegTennisclubToAanLijst(Tennisclub tennisclub) {
-        lijstMetTennisclubs.add(tennisclub);
-    }
-
+    // Tennisclub methods
+    public void setLijstMetTennisclubs(ObservableList<Tennisclub> lijst) { lijstMetTennisclubs = lijst; }
+    public void voegTennisclubToAanLijst(Tennisclub tennisclub) { lijstMetTennisclubs.add(tennisclub); }
     public int getIndexVanTennisclubInLijst(Tennisclub tennisclub) {
-        int index = 0;
         for (int i = 0; i < lijstMetTennisclubs.size(); i++) {
             if (lijstMetTennisclubs.get(i).getClubnaam().equals(tennisclub.getClubnaam())) {
-
-                index = i;
-                break;
+                return i;
             }
         }
-        return index;
+        return -1;
     }
+    public Tennisclub getTennisclubOpIndexInLijst(int index) { return lijstMetTennisclubs.get(index); }
+    public void verwijderTennisclubVanLijst(Tennisclub tennisclub) { lijstMetTennisclubs.remove(tennisclub); }
+    public void verwijderTennisclubVanLijstOpIndex(int index) {lijstMetTennisclubs.remove(index); }
+    public ObservableList<Tennisclub> getLijstMetTennisclubs() { return lijstMetTennisclubs; }
 
-    public Tennisclub getTennisclubOpIndexInLijst(int index) {
-        return lijstMetTennisclubs.sorted().get(index);
-    }
-
-    public void verwijderTennisclubVanLijst(Tennisclub tennisclub) {
-        for(int index = 0; index < lijstMetTennisclubs.size(); index++) {
-            if (lijstMetTennisclubs.get(index).getClubnaam().equals(tennisclub.getClubnaam())) {
-                lijstMetTennisclubs.remove(index);
-
-                break;
+    // Training methods
+    public void setLijstMetTrainingen(ObservableList<Training> lijst) { lijstMetTrainingen = lijst; }
+    public void voegTrainingToAanLijst(Training training) { lijstMetTrainingen.add(training); }
+    public int getIndexVanTrainingInLijst(Training training) {
+        for (int i = 0; i < lijstMetTrainingen.size(); i++) {
+            if (lijstMetTrainingen.get(i).getAfgesprokenTrainer().equals(training.getAfgesprokenTrainer())) {
+                return i;
             }
         }
+        return -1;
     }
+    public Training getTrainingOpIndexInLijst(int index) { return lijstMetTrainingen.get(index); }
+    public void verwijderTrainingVanLijst(Training training) { lijstMetTrainingen.remove(training); }
+    public void verwijderTrainingVanLijstOpIndex(int index) {lijstMetTrainingen.remove(index); }
+    public ObservableList<Training> getLijstMetTrainingen() { return lijstMetTrainingen; }
 
-    public ObservableList<Training> getListOfTrainingen() { return lijstMetTrainingen; }
-
-    public void setLijstMetTennisbanen(ObservableList<Tennisbaan> lijst) {
-        lijstMetTennisbanen = lijst;
-    };
-
-    public int getIndexOfTennisbaanInList(Tennisbaan tennisbaan) {
-        int index = 0;
+    // Tennisbaan methods
+    public void setLijstMetTennisbanen(ObservableList<Tennisbaan> lijst) { lijstMetTennisbanen = lijst; }
+    public int getIndexVanTennisbaanInLijst(Tennisbaan tennisbaan) {
         for (int i = 0; i < lijstMetTennisbanen.size(); i++) {
             if (lijstMetTennisbanen.get(i).getBaannummer().equals(tennisbaan.getBaannummer())) {
-                index = i;
-                break;
+                return i;
             }
         }
-        return index;
+        return -1;
     }
 
-    public ObservableList<Tennisclub> getLijstMetTennisclubs() {
-        return lijstMetTennisclubs;
-    }
+    public Tennisbaan getTennisbaanOpIndexInLijst(int index) { return lijstMetTennisbanen.get(index); }
 
-    public void setLijstMetTraining(ObservableList<Training> lijstMetWedstrijden) {
-        this.lijstMetWedstrijden = lijstMetWedstrijden;
-    }
-
-    public void voegTrainingToAanLijst(Training training) {
-        lijstMetWedstrijden.add(training);
-    }
-
-    public int getIndexVanTrainingInLijst(Training training) {
-        int index = 0;
-        for (int i = 0; i < lijstMetWedstrijden.size(); i++) {
-            if (lijstMetWedstrijden.get(i).getAfgesprokenTrainer().equals(training.getAfgesprokenTrainer())) {
-                index = i;
-                break;
-            }
-        }
-        return index;
-    }
-
-    public Training getTrainingOpIndexInLijst(int index) {
-        return lijstMetWedstrijden.sorted().get(index);
-    }
-
-    public void verwijderTrainingVanLijst(Training training) {
-        for(int index = 0; index < lijstMetWedstrijden.size(); index++) {
-            if (lijstMetWedstrijden.get(index).getAfgesprokenTrainer().equals(training.getAfgesprokenTrainer())) {
-                lijstMetWedstrijden.remove(index);
-
-                break;
-            }
-        }
-    }
-
-    public ObservableList<Tennisbaan> getListOfTennisbaan() { return lijstMetTennisbanen; }
-
-    public void voegTennisclubToList(Tennisclub tennisclub) { lijstMetTennisclubs.add(tennisclub); };
-
-    public int getIndexOfTennisclubInList(Tennisclub tennisclub) {
-        int index = 0;
-        for (int i = 0; i < lijstMetTennisclubs.size(); i++) {
-            if (lijstMetTennisclubs.get(i).getClubnaam().equals(tennisclub.getClubnaam())) {
-                index = i;
-                break;
-            }
-        }
-        return index;
-    }
-
-    public void verwijderTennisclubInList(Tennisclub tennisclub) {
-        for (int i = 0; i < lijstMetTennisclubs.size(); i++) {
-            if (lijstMetTennisclubs.get(i).getClubnaam().equals(tennisclub.getClubnaam())) {
-                lijstMetTennisclubs.remove(i);
-                break;
-            }
-        }
-    }
-
-    public ObservableList<Tennisclub> getListOfTennisclub () { return lijstMetTennisclubs; }
-
-    public ObservableList<Training> getLijstMetWedstrijden() {
-        return lijstMetWedstrijden;
-
-    }
+    public ObservableList<Tennisbaan> getLijstMetTennisbanen() { return lijstMetTennisbanen; }
+    public void verwijderTennisbanenVanLijst(Tennisbaan tennisbaan) {lijstMetTennisbanen.remove(tennisbaan); }
+    public void verwijderTennisbanenVanLijstOpIndex(int index) {lijstMetTennisbanen.remove(index); }
 }

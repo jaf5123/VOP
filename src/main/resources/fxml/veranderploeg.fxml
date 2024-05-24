@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -9,12 +9,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane prefHeight="650.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.vop.VeranderScherm">
     <children>
         <HBox prefHeight="650.0" prefWidth="960.0">
             <children>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Verander speler:" textAlignment="CENTER" translateX="390.0" translateY="25.0">
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Voeg een ploeg toe:" textAlignment="CENTER" translateX="390.0" translateY="25.0">
                     <font>
                         <Font name="System Bold" size="18.0" />
                     </font>
@@ -22,66 +21,59 @@
             </children>
         </HBox>
         <Line endX="960.0" endY="55.5" opacity="0.53" startY="55.5" strokeWidth="4.0" />
-        <TextField fx:id="VeranderLidNaam" translateX="95.0" translateY="85.0" />
-        <TextField fx:id="VeranderLidAchternaam" translateX="125.0" translateY="160.0" />
-        <TextField fx:id="VeranderLidAdres" translateX="95.0" translateY="230.0" />
-        <TextField fx:id="VeranderLidLeeftijd" layoutX="10.0" layoutY="10.0" translateX="425.0" translateY="75.0" />
-        <TextField fx:id="VeranderLidGeslacht" layoutX="10.0" layoutY="10.0" translateX="425.0" translateY="220.0" />
-        <TextField fx:id="VeranderLidErvaring" layoutX="10.0" layoutY="10.0" translateX="750.0" translateY="75.0" />
+        <TextField fx:id="VeranderClubNaam" translateX="95.0" translateY="85.0" />
+        <TextField fx:id="VeranderClubSluitingsuur" translateX="410.0" translateY="160.0" />
+        <TextField fx:id="VeranderClubOpeningsuur" layoutX="10.0" layoutY="10.0" translateX="400.0" translateY="78.0" />
+        <TextField fx:id="VeranderClubLocatie" layoutX="10.0" layoutY="10.0" translateX="655.0" translateY="150.0" />
+        <TextField fx:id="VeranderClubTelefoonnummer" layoutX="10.0" layoutY="10.0" translateX="750.0" translateY="75.0" />
         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Naam:" translateX="35.0" translateY="103.0">
             <font>
                 <Font name="System Bold" size="18.0" />
             </font>
         </Text>
-        <Text layoutX="10.0" layoutY="10.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Achternaam:" translateY="169.0">
+        <Text layoutX="10.0" layoutY="10.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manager:" translateY="169.0">
             <font>
                 <Font name="System Bold" size="18.0" />
             </font>
         </Text>
-        <Text layoutX="20.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adres:" translateY="230.0">
+        <Text layoutX="20.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sluitingsuur:" translateX="280.0" translateY="160.0">
             <font>
                 <Font name="System Bold" size="18.0" />
             </font>
         </Text>
-        <Text layoutX="20.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Leeftijd:" translateX="340.0" translateY="85.0">
+        <Text layoutX="20.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Telefoonnummer:" translateX="575.0" translateY="85.0">
             <font>
                 <Font name="System Bold" size="18.0" />
             </font>
         </Text>
-        <Text layoutX="20.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Geboortedatum:" translateX="270.0" translateY="150.0">
+        <Text layoutX="20.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Openingsuur:" translateX="270.0" translateY="85.0">
             <font>
                 <Font name="System Bold" size="18.0" />
             </font>
         </Text>
-        <Text layoutX="20.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Geslacht:" translateX="330.0" translateY="230.0">
+        <Text layoutX="20.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Locatie:" translateX="575.0" translateY="160.0">
             <font>
                 <Font name="System Bold" size="18.0" />
             </font>
         </Text>
-        <Text layoutX="20.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ervaring:" translateX="655.0" translateY="85.0">
+        <TextField fx:id="VeranderClubFoto" translateX="390.0" translateY="230.0" />
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Foto:" translateX="340.0" translateY="250.0">
             <font>
                 <Font name="System Bold" size="18.0" />
             </font>
         </Text>
-        <Text layoutX="20.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lid sinds:" translateX="650.0" translateY="145.0">
-            <font>
-                <Font name="System Bold" size="18.0" />
-            </font>
-        </Text>
-        <DatePicker fx:id="VeranderLidGeboorteDatum" translateX="435.0" translateY="150.0" />
-        <DatePicker fx:id="VeranderLidLidSinds" translateX="760.0" translateY="145.0" />
-        <Line endX="949.9999389648438" endY="293.0" layoutX="10.0" layoutY="10.0" opacity="0.53" startX="-10.0" startY="293.0" strokeWidth="4.0" />
-        <TextField fx:id="VeranderFoto" translateX="735.0" translateY="230.0" />
-        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Foto:" translateX="680.0" translateY="250.0">
-            <font>
-                <Font name="System Bold" size="18.0" />
-            </font>
-        </Text>
-        <Button fx:id="folderKnop" mnemonicParsing="false" prefHeight="25.0" prefWidth="52.0" scaleX="0.9" scaleY="0.9" text="Zoek" textAlignment="CENTER" translateX="885.0" translateY="230.0" />
-        <Button fx:id="VeranderKnop" mnemonicParsing="false" text="Verander" textAlignment="CENTER" translateX="435.0" translateY="360.0">
+        <Button fx:id="folderKnop" mnemonicParsing="false" prefHeight="25.0" prefWidth="52.0" scaleX="0.9" scaleY="0.9" text="Zoek" textAlignment="CENTER" translateX="540.0" translateY="230.0" />
+        <Button fx:id="VeranderKnop" mnemonicParsing="false" text="Veranderen" textAlignment="CENTER" translateX="435.0" translateY="360.0">
             <font>
                 <Font name="System Bold" size="14.0" />
             </font>
         </Button>
+        <ChoiceBox fx:id="VeranderClubManager" prefWidth="150.0" translateX="100.0" translateY="165.0" />
+        <ChoiceBox fx:id="VeranderClubLeden" prefWidth="150.0" translateX="95.0" translateY="235.0" />
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Leden:" translateX="25.0" translateY="250.0">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Text>
     </children>
 </AnchorPane>

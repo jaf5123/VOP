@@ -42,8 +42,11 @@ public class PloegenSchermController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/veranderploeg.fxml"));
         Parent root = loader.load();
 
+        int index = Variables.getInstance().getIndexVanTennisclubInLijst(tennisclub);
+
         veranderScherm = loader.getController();
-        veranderScherm.start(tennisclub, ploegenTabel);
+
+        veranderScherm.startVoorTennisClub(ploegenTabel, index);
 
         Stage stage = new Stage();
         stage.setTitle("Tennisclub De Mol: verander Ploeg " + tennisclub.getClubnaam());

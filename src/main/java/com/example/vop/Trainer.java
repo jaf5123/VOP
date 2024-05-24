@@ -18,10 +18,11 @@ public class Trainer {
         this.persoon = new SimpleObjectProperty<>();
     };
 
-    public Trainer(Persoon persoon, String geslacht, LocalDate werkt_sinds, Ervaring ervaring, String foto) {
+    public Trainer(Persoon persoon, String specialiteit, String geslacht, LocalDate werkt_sinds, Ervaring ervaring, String foto) {
         this.persoon = new SimpleObjectProperty<>(persoon);
         this.foto = new SimpleStringProperty(foto);
         this.geslacht = new SimpleStringProperty(geslacht);
+        this.specialiteit = new SimpleStringProperty(specialiteit);
         this.ervaring = new SimpleObjectProperty<Ervaring>(ervaring);
         this.werkt_sinds = new SimpleObjectProperty<LocalDate>(werkt_sinds);
     };

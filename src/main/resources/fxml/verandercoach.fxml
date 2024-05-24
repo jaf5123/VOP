@@ -4,20 +4,84 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.vop.VeranderScherm">
+<AnchorPane prefHeight="650.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.vop.VeranderScherm">
     <children>
-        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Wijzig Coach" textAlignment="CENTER" layoutX="215.0" layoutY="25.0">
+        <HBox prefHeight="650.0" prefWidth="960.0">
+            <children>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Voeg een coach toe:" textAlignment="CENTER" translateX="390.0" translateY="25.0">
+                    <font>
+                        <Font name="System Bold" size="18.0" />
+                    </font>
+                </Text>
+            </children>
+        </HBox>
+        <Line endX="960.0" endY="55.5" opacity="0.53" startY="55.5" strokeWidth="4.0" />
+        <TextField fx:id="VeranderCoachNaam" layoutX="225.0" layoutY="75.0" translateX="-130.0" translateY="30.0" />
+        <TextField fx:id="VeranderCoachAchternaam" layoutX="225.0" layoutY="125.0" translateX="235.0" translateY="-20.0" />
+        <TextField fx:id="VeranderCoachSpecialiteit" layoutX="225.0" layoutY="175.0" translateX="550.0" translateY="-70.0" />
+        <DatePicker fx:id="VeranderCoachWerktSinds" layoutX="225.0" layoutY="225.0" translateX="-75.0" />
+        <TextField fx:id="VeranderFoto" translateX="435.0" translateY="225.0" />
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Foto:" translateX="380.0" translateY="245.0">
             <font>
-                <Font name="System Bold" size="24.0" />
+                <Font name="System Bold" size="18.0" />
             </font>
         </Text>
-        <TextField fx:id="WijzigCoachNaam" layoutX="225.0" layoutY="75.0" />
-        <TextField fx:id="WijzigCoachAchternaam" layoutX="225.0" layoutY="125.0" />
-        <TextField fx:id="WijzigCoachSpecialiteit" layoutX="225.0" layoutY="175.0" />
-        <DatePicker fx:id="WijzigCoachWerktSinds" layoutX="225.0" layoutY="225.0" />
-        <Button fx:id="OpslaanKnop" layoutX="225.0" layoutY="275.0" text="Opslaan" />
+        <Button fx:id="folderKnop" mnemonicParsing="false" prefHeight="25.0" prefWidth="52.0" scaleX="0.9" scaleY="0.9" text="Zoek" textAlignment="CENTER" translateX="590.0" translateY="225.0" />
+        <Button fx:id="VeranderKnop" mnemonicParsing="false" text="Veranderen" textAlignment="CENTER" translateX="435.0" translateY="485.0">
+            <font>
+                <Font name="System Bold" size="14.0" />
+            </font>
+        </Button>
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Naam:" translateX="25.0" translateY="125.0">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font></Text>
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Achternaam:" translateX="335.0" translateY="125.0">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font></Text>
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Specialiteit:" translateX="670.0" translateY="125.0">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font></Text>
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Werkt sinds:" translateX="35.0" translateY="245.0">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font></Text>
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Geslacht:" textAlignment="CENTER" translateX="665.0" translateY="244.0">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Text>
+        <TextField fx:id="VeranderCoachGeslacht" translateX="750.0" translateY="225.0" />
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Adres:" translateX="25.0" translateY="350.0">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Text>
+        <TextField fx:id="VeranderCoachAdres" translateX="85.0" translateY="333.0" />
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Geboortedatum:" translateX="295.0" translateY="350.0">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Text>
+        <DatePicker fx:id="VeranderCoachGeboorteDatum" translateX="440.0" translateY="334.0" />
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Leeftijd:" translateX="650.0" translateY="350.0">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Text>
+        <TextField fx:id="VeranderCoachLeeftijd" translateX="730.0" translateY="333.0" />
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ervaring:" textAlignment="CENTER" translateX="365.0" translateY="425.0">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Text>
+        <TextField fx:id="VeranderCoachErvaring" translateX="445.0" translateY="410.0" />
     </children>
 </AnchorPane>

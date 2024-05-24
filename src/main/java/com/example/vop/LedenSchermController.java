@@ -44,7 +44,9 @@ public class LedenSchermController {
         Parent root = loader.load();
 
         veranderScherm = loader.getController();
-        veranderScherm.start(speler, spelersTabel);
+        int index = Variables.getInstance().getIndexVanSpelerInLijst(speler);
+
+        veranderScherm.startVoorSpeler(spelersTabel, index);
 
         Stage stage = new Stage();
         stage.setTitle("Tennisclub De Mol: verander lid " + speler.getPersoon().getNaam() + " " + speler.getPersoon().getAchternaam());
