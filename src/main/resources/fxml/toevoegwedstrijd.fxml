@@ -22,11 +22,11 @@
             </children>
         </HBox>
         <Line endX="600.0" endY="55.5" opacity="0.53" startY="55.5" strokeWidth="4.0" />
-        <TextField fx:id="ToevoegStartOm" translateX="140.0" translateY="85.0" />
-        <TextField fx:id="ToevoegEindigtOm" translateX="140.0" translateY="135.0" />
-        <DatePicker fx:id="ToevoegDatum" translateX="140.0" translateY="185.0" />
+        <TextField fx:id="ToevoegWedstrijdStarttijd" translateX="140.0" translateY="85.0" />
+        <TextField fx:id="ToevoegWedstrijdEindtijd" translateX="140.0" translateY="135.0" />
+        <DatePicker fx:id="ToevoegWedstrijdDatum" translateX="140.0" translateY="185.0" />
         <ChoiceBox fx:id="ToevoegWedstrijdTrainer" prefWidth="150.0" translateX="140.0" translateY="235.0" />
-        <TextField fx:id="ToevoegBaan" prefWidth="150.0" translateX="140.0" translateY="285.0" />
+        <TextField fx:id="ToevoegWedstrijdBaan" prefWidth="150.0" translateX="140.0" translateY="285.0" />
         <Button fx:id="ToevoegKnop" mnemonicParsing="false" text="Toevoegen" textAlignment="CENTER" translateX="250.0" translateY="350.0">
             <font>
                 <Font name="System Bold" size="14.0" />
